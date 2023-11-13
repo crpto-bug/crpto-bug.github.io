@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Top 50 Violated Areas Word Cloud</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <div id="wordcloud"></div>
+
+  <script>
+   
+    var top50Areas = ['848 W 87TH STREET', '1200 N HALSTED', '6800 W GRAND AVENUE', '800 N SACRAMENTO AVEN', '400 W BELMONT AVE', '4800 N CICERO AVENUE', '1600 E 95TH STREET', '4800 N CICERO AVE', '5930 N CLARK STREET', '5400 S ARCHER AVE', '4200 S CICERO AVENUE', '2800 N CALIFORNIA AVE', '628 N MICHIGAN AVE', '4000 W FULLERTON AVE', '4700 S KEDZIE AVE', '400 S WESTERN AVENUE', '6000 N WESTERN AVE', '4800 N WESTERN AVENUE', '6700 S CORNELL DRIVE', '2400 W MARQUETTE ROAD', '1 E 79TH STREET', '2800 N CICERO AVENUE', '4000 W 79TH STREET', '6400 W ARCHER AVE', '4000 W 63RD ST', '800 W ROOSEVELT ROAD', '1000 W HOLLYWOOD AVE', '1600 W DIVISION STREET', '4400 W NORTH', '1900 N ASHLAND AVE', '7600 S STONY ISLAND A', '2400 W MADISON', '2400 N ASHLAND AVENUE', '7900 S PULASKI ROAD', '6000 W ADDISON STREET', '6000 W IRVING PARK ROAD', '30 W 87TH STREET', '2800 W DIVERSEY', '8700 S LAFAYETTE AVEN', '6700 S STONY ISLAND A', '3200 N KEDZIE AVE', '9900 S HALSTED ST', '100 N CICERO AVENUE', '5200 S CICERO AVE', '5200 W MADISON STREET', '7500 S STATE STREET', '150 N SACRAMENTO BOUL', '800 N PULASKI ROAD', '1 E 75TH STREET', '4000 W BELMONT AVE'];
+
+    // Create a word cloud layout
+    var layout = d3.layout.cloud()
+      .size([1600, 900])
+      .words(top50Areas.map(function(d) {
+        return { text: d, size: 10 + Math.random() * 90 };
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw);
+
+    layout.start();
+
+    // Draw the word cloud
+    function draw(words) {
+      d3.select("#wordcloud")
+        .append("svg")
+        .attr("width", layout.size()[0])
+        .attr("height", layout.size()[1])
+        .append("g")
+        .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+        .selectAll("text")
+        .data(words)
+        .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("fill", function(d, i) { return d3.schemeCategory10[i % 10]; }) // Color
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+    }
+  </script>
+</body>
+</html>

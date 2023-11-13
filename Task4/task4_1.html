@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Top 50 Violated Areas Heatmap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 800px;"></div>
+
+    <script>
+        // Fetch the data from the JSON file
+        fetch("https://raw.githubusercontent.com/bvella2/dt/main/top_50_violated_areas.json")
+            .then(response => response.json())
+            .then(data => {
+                createHeatmap(data);
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+            });
+
+        // Function to create the heatmap
+        function createHeatmap(top50Areas) {
+            // Initialize the map centered around Chicago
+        var map = L.map("map").setView([41.8781, -87.6298], 11);
+
+        // Add a basemap layer (e.g., OpenStreetMap)
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+
+        // Create a heatmap layer for the top 50 areas
+        var heatData = top50Areas.map(function (area) {
+            return [area.LATITUDE, area.LONGITUDE, area.VIOLATIONS];
+        });
+
+        // Add the heatmap layer
+        L.heatLayer(heatData, { radius: 25, maxZoom: 13 }).addTo(map);
+        }
+    </script>
+</body>
+</html>

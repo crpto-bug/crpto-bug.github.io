@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "config": {
+    "view": {"continuousWidth": 300, "continuousHeight": 300, "stroke": null},
+    "facet": {"spacing": 8},
+    "legend": {"orient": "bottom"}
+  },
+  "data": {"name": "data-27b8613aac645dac359f359cc8cf0409"},
+  "mark": {"type": "arc", "outerRadius": 120},
+  "encoding": {
+    "color": {"field": "CAMERA ID", "legend": null, "type": "nominal"},
+    "facet": {"columns": 2, "field": "year", "type": "ordinal"},
+    "theta": {"field": "VIOLATIONS", "stack": true, "type": "quantitative"},
+    "tooltip": [
+      {"field": "CAMERA ID", "type": "quantitative"},
+      {"field": "VIOLATIONS", "type": "quantitative"}
+    ]
+  },
+  "title": "Total Violations by Camera ID",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json",
+  "datasets": {
+    "data-27b8613aac645dac359f359cc8cf0409": [
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1031,
+        "VIOLATIONS": 845,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1142,
+        "VIOLATIONS": 583,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1344,
+        "VIOLATIONS": 1522,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1742,
+        "VIOLATIONS": 940,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1881,
+        "VIOLATIONS": 583,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1931,
+        "VIOLATIONS": 446,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 1972,
+        "VIOLATIONS": 908,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 2052,
+        "VIOLATIONS": 2199,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 2234,
+        "VIOLATIONS": 523,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2020,
+        "CAMERA ID": 2503,
+        "VIOLATIONS": 3216,
+        "year": "2020"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1031,
+        "VIOLATIONS": 2563,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1142,
+        "VIOLATIONS": 2256,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1344,
+        "VIOLATIONS": 9062,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1742,
+        "VIOLATIONS": 3586,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1881,
+        "VIOLATIONS": 2648,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1931,
+        "VIOLATIONS": 2699,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 1972,
+        "VIOLATIONS": 3618,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 2052,
+        "VIOLATIONS": 10182,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 2234,
+        "VIOLATIONS": 3488,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2021,
+        "CAMERA ID": 2503,
+        "VIOLATIONS": 15140,
+        "year": "2021"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1031,
+        "VIOLATIONS": 3027,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1142,
+        "VIOLATIONS": 2455,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1344,
+        "VIOLATIONS": 10825,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1742,
+        "VIOLATIONS": 3139,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1881,
+        "VIOLATIONS": 3281,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1931,
+        "VIOLATIONS": 2622,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 1972,
+        "VIOLATIONS": 3565,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 2052,
+        "VIOLATIONS": 9645,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 2234,
+        "VIOLATIONS": 4588,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2022,
+        "CAMERA ID": 2503,
+        "VIOLATIONS": 12828,
+        "year": "2022"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1031,
+        "VIOLATIONS": 2395,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1142,
+        "VIOLATIONS": 2027,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1344,
+        "VIOLATIONS": 7924,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1742,
+        "VIOLATIONS": 2756,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1881,
+        "VIOLATIONS": 3377,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1931,
+        "VIOLATIONS": 2192,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 1972,
+        "VIOLATIONS": 3320,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 2052,
+        "VIOLATIONS": 7175,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 2234,
+        "VIOLATIONS": 3576,
+        "year": "2023"
+      },
+      {
+        "VIOLATION DATE": 2023,
+        "CAMERA ID": 2503,
+        "VIOLATIONS": 9976,
+        "year": "2023"
+      }
+    ]
+  }
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

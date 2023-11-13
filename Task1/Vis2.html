@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.22.2"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "config": {
+    "view": {"continuousWidth": 300, "continuousHeight": 300},
+    "axisX": {"labelAngle": -90}
+  },
+  "data": {"name": "data-cb82cf67880cfdefc026a2aee8e7d76d"},
+  "mark": {"type": "bar"},
+  "encoding": {
+    "tooltip": [
+      {"field": "INTERSECTION", "title": "Intersection", "type": "nominal"},
+      {"field": "Count", "title": "Violations", "type": "quantitative"}
+    ],
+    "x": {
+      "field": "INTERSECTION",
+      "sort": {"field": "Count", "order": "descending"},
+      "type": "nominal"
+    },
+    "y": {
+      "field": "Count",
+      "title": "Number of Violations",
+      "type": "quantitative"
+    }
+  },
+  "height": 400,
+  "title": "Top 10 Intersections with the Most Violations",
+  "width": 600,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json",
+  "datasets": {
+    "data-cb82cf67880cfdefc026a2aee8e7d76d": [
+      {"INTERSECTION": "CALIFORNIA AND DIVERSEY", "Count": 3032},
+      {"INTERSECTION": "KOSTNER AND NORTH", "Count": 2944},
+      {"INTERSECTION": "STONEY ISLAND AND 79TH", "Count": 2526},
+      {"INTERSECTION": "BELMONT AND KEDZIE", "Count": 2480},
+      {"INTERSECTION": "LAFAYETTE AND 87TH", "Count": 2172},
+      {"INTERSECTION": "OGDEN AND KOSTNER", "Count": 2168},
+      {"INTERSECTION": "75TH AND STATE", "Count": 2164},
+      {"INTERSECTION": "STATE AND 79TH", "Count": 2161},
+      {"INTERSECTION": "119TH AND HALSTED", "Count": 2155},
+      {"INTERSECTION": "HOLLYWOOD AND SHERIDAN", "Count": 2152}
+    ]
+  }
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
